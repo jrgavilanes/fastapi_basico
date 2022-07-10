@@ -1,6 +1,6 @@
 # Notas python
 
-## Crear entorno 
+## Crear entorno
 
 ```bash
 python -m venv venv
@@ -22,11 +22,34 @@ app = FastAPI()
 @app.get("/")
 async def root():
     return {"message": "Hola nanos"}
+
+
 ```
 
 ## Arranca servidor
 ```bash
 uvicorn main:app --host "0.0.0.0" --port 8000 --reload
+```
+
+## Ejemplo base en desarrollo
+```python
+import fastapi
+import uvicorn
+
+app = fastapi.FastAPI()
+
+
+@app.get("/")
+def root():
+    x = 2
+    y = 2
+    z = x + y
+    return {"message": z}
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+    
 ```
 
 ## Prueba endpoints desde linea comandos
